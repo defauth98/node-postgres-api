@@ -4,6 +4,7 @@ const router = express.Router();
 const OwnerController = require("./Controllers/OwnerController");
 const EnterpriceController = require("./Controllers/EnterpriseController");
 const CitiesContoller = require("./Controllers/CitiesController");
+const WorkersController = require("./Controllers/WorkersController");
 
 router
   //Owner Routes
@@ -22,6 +23,12 @@ router
   .post("/city", CitiesContoller.store)
   .get("/city", CitiesContoller.index)
   .put("/city/:id", CitiesContoller.update)
-  .delete("/city/:id", CitiesContoller.delete);
+  .delete("/city/:id", CitiesContoller.delete)
+
+  //Workers Routes
+  .post("/worker", WorkersController.store)
+  .get("/worker", WorkersController.index)
+  .put("/worker/:id", WorkersController.update)
+  .delete("/worker/:id", WorkersController.delete);
 
 module.exports = router;

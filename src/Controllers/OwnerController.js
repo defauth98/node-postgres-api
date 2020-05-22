@@ -4,16 +4,6 @@ module.exports = {
   async store(req, res) {
     const { name } = req.body;
 
-    // Cria a tabela se ela não existe
-    try {
-      const queryText = `CREATE TABLE IF NOT EXISTS "owner" (
-          id SERIAL PRIMARY KEY,
-          nome VARCHAR(55))`;
-      await db.query(queryText);
-    } catch (err) {
-      console.log("Error ao criar a tabela");
-    }
-
     //Insere na tabela owner
     try {
       const text = "INSERT INTO owner(nome) VALUES($1) RETURNING *";
