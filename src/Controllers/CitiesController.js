@@ -2,16 +2,15 @@ const db = require("../database");
 
 module.exports = {
   async store(req, res) {
-    const { name, owner_id, city_id } = req.body;
+    const { name } = req.body;
 
     //Insere na tabela enterprise
     try {
-      const text =
-        "INSERT INTO enterprise(nome,owner_id, city_id) VALUES($1, $2, $3) RETURNING *";
-      const values = [name, owner_id, city_id];
+      const text = "INSERT INTO cities(nome) VALUES($1) RETURNING *";
+      const values = [name];
 
-      const enterprises = await db.query(text, values);
-      res.json({ fields: enterprises.rows });
+      const owner = await db.query(text, values);
+      res.json({ fields: owner.rows });
     } catch (err) {
       console.log(err);
     }
@@ -19,9 +18,9 @@ module.exports = {
 
   async index(req, res) {
     try {
-      const enterprises = await db.query("SELECT * FROM enterprise");
+      const cities = await db.query("SELECT * FROM cities");
 
-      res.json({ empresas: enterprises.rows });
+      res.json({ Cidades: cities.rows });
     } catch (error) {
       res.status(500).json({
         erro: "Não foi possivel listar os campos no banco de dados",
@@ -34,7 +33,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("UPDATE enterprise SET nome=$1 WHERE id=$2", [name, id]);
+      await db.query("UPDATE cities SET nome=$1 WHERE id=$2", [name, id]);
       res.send();
     } catch (error) {
       res.status(500).send({
@@ -47,7 +46,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("DELETE FROM owner WHERE id=$1", [id]);
+      await db.query("DELETE FROM cities WHERE id=$1", [id]);
       res.send();
     } catch (error) {
       res.status(500).json({
