@@ -1,17 +1,10 @@
-const { Pool, Client } = require("pg");
-const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "api_pg_test",
-  password: "",
-  port: 5432,
-});
+const { Client } = require("pg");
 
 const client = new Client({
   user: "postgres",
   host: "localhost",
-  database: "api_pg_test",
-  password: "",
+  database: "test_api",
+  password: "postgres",
   port: 5432,
 });
 
