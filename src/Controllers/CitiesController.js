@@ -4,7 +4,6 @@ module.exports = {
   async store(req, res) {
     const { name } = req.body;
 
-    //Insere na tabela cities
     try {
       const text = "INSERT INTO cities(nome) VALUES($1) RETURNING *";
       const values = [name];

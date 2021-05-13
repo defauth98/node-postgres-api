@@ -4,7 +4,6 @@ module.exports = {
   async store(req, res) {
     const { name, owner_id, city_id } = req.body;
 
-    //Insere na tabela enterprise
     try {
       const text =
         "INSERT INTO enterprise(nome,owner_id, city_id) VALUES($1, $2, $3) RETURNING *";
