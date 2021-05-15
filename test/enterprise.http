@@ -1,0 +1,35 @@
+###
+# create owner
+
+POST http://localhost:3003/enterprise HTTP/1.1
+content-type: application/json
+
+{
+  "name":"Trybe",
+  "owner_id": 4,
+  "city_id": 1
+}
+
+###
+# index enterprise
+
+GET http://localhost:3003/enterprise HTTP/1.1
+content-type: application/json
+
+###
+# update enterprise
+
+PUT http://localhost:3003/enterprise/4 HTTP/1.1
+content-type: application/json
+
+{
+  "name":"Rocketseat",
+  "owner_id": 4,
+  "city_id": 1
+}
+
+###
+# delete enterprise
+
+DELETE http://localhost:3003/enterprise/1 HTTP/1.1
+content-type: application/json

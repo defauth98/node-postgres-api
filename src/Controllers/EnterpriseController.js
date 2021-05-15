@@ -46,7 +46,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("DELETE FROM owner WHERE id=$1", [id]);
+      await db.query("DELETE FROM enterprise WHERE id=$1", [id]);
       res.send();
     } catch (error) {
       res.status(500).json({
