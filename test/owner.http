@@ -25,7 +25,7 @@ content-type: application/json
 }
 
 ###
-# update owner
+# delete owner
 
 DELETE http://localhost:3003/owner/4 HTTP/1.1
 content-type: application/json

@@ -1,0 +1,31 @@
+###
+# create owner
+
+POST http://localhost:3003/city HTTP/1.1
+content-type: application/json
+
+{
+  "name":"Rio de Janeiro"
+}
+
+###
+# index city
+
+GET http://localhost:3003/city HTTP/1.1
+content-type: application/json
+
+###
+# update city
+
+PUT http://localhost:3003/city/1 HTTP/1.1
+content-type: application/json
+
+{
+  "name":"São Paulo"
+}
+
+###
+# delete city
+
+DELETE http://localhost:3003/city/4 HTTP/1.1
+content-type: application/json

@@ -9,6 +9,7 @@ module.exports = {
       const values = [name];
 
       const owner = await db.query(text, values);
+      
       res.json({ fields: owner.rows });
     } catch (err) {
       console.log(err);
