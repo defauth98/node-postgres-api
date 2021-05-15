@@ -5,7 +5,7 @@ module.exports = {
     const { name } = req.body;
 
     try {
-      const text = "INSERT INTO cities(nome) VALUES($1) RETURNING *";
+      const text = "INSERT INTO cities(name) VALUES($1) RETURNING *";
       const values = [name];
 
       const owner = await db.query(text, values);
@@ -32,7 +32,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("UPDATE cities SET nome=$1 WHERE id=$2", [name, id]);
+      await db.query("UPDATE cities SET name=$1 WHERE id=$2", [name, id]);
       res.send();
     } catch (error) {
       res.status(500).send({

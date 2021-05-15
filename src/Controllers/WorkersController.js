@@ -6,7 +6,7 @@ module.exports = {
 
     try {
       const text =
-        "INSERT INTO workers(nome,enterprise_id) VALUES($1, $2) RETURNING *";
+        "INSERT INTO workers(name,enterprise_id) VALUES($1, $2) RETURNING *";
       const values = [name, enterprise_id];
 
       const worker = await db.query(text, values);
@@ -33,7 +33,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("UPDATE workers SET nome=$1 WHERE id=$2", [name, id]);
+      await db.query("UPDATE workers SET name=$1 WHERE id=$2", [name, id]);
       res.send();
     } catch (error) {
       res.status(500).send({
