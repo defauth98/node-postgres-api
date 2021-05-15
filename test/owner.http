@@ -1,0 +1,31 @@
+###
+# create owner
+
+POST http://localhost:3003/owner HTTP/1.1
+content-type: application/json
+
+{
+  "name":"Rafael"
+}
+
+###
+# index owner
+
+GET http://localhost:3003/owner HTTP/1.1
+content-type: application/json
+
+###
+# update owner
+
+PUT http://localhost:3003/owner/4 HTTP/1.1
+content-type: application/json
+
+{
+  "name":"Rafael 2"
+}
+
+###
+# update owner
+
+DELETE http://localhost:3003/owner/4 HTTP/1.1
+content-type: application/json

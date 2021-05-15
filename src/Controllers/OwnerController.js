@@ -5,11 +5,11 @@ module.exports = {
     const { name } = req.body;
 
     try {
-      const text = "INSERT INTO owner(nome) VALUES($1) RETURNING *";
+      const text = "INSERT INTO owner(name) VALUES($1) RETURNING *";
       const values = [name];
 
       const owner = await db.query(text, values);
-      res.json({ fields: owner.rows });
+      res.json( owner.rows );
     } catch (err) {
       console.log(err);
     }
@@ -19,7 +19,7 @@ module.exports = {
     try {
       const owners = await db.query("SELECT * FROM owner");
 
-      res.json({ donos: owners.rows });
+      res.json({ owners: owners.rows });
     } catch (error) {
       res.status(500).json({
         erro: "Não foi possivel listar os campos no banco de dados",
@@ -32,7 +32,7 @@ module.exports = {
     const { id } = req.params;
 
     try {
-      await db.query("UPDATE owner SET nome=$1 WHERE id=$2", [name, id]);
+      await db.query("UPDATE owner SET name=$1 WHERE id=$2", [name, id]);
       res.send();
     } catch (error) {
       res.status(500).send({
