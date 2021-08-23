@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> Projeto usado para estudar o driver nativo do postgres com NodeJS
+Projeto usado para estudar o driver nativo do postgres com NodeJS
 
 ## Install
 
